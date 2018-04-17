@@ -1,24 +1,31 @@
-class PigLatinizer
+def piglatinize(word)
+  vowels = ["a", "e", "i", "o", "u"]
+  consonants = ""
 
+  if word == "I" || word == "A"
+    word + "way"
 
-  def to_pig_latin(sentence)
-    sentence.split.collect{|word| piglatinize(word)}.join(" ")
+  elsif vowels.include?(word[0].downcase)
+    word + "way"
+
+  elsif !vowels.include?(word[0]) && !vowels.include?(word[1]) && !vowels.include?(word[2])
+    word2 = word.split("")[3..-1].join
+    word2 + word[0] + word[1] + word[2] + "ay"
+
+  elsif !vowels.include?(word[0]) && !vowels.include?(word[1])
+    word2 = word.split("")[2..-1].join
+    word2 + word[0] + word[1] + "ay"
+
+    elsif
+    !vowels.include?(word[0])
+     word2 = word.split("")[1..-1].join
+     word2 + word[0] + "ay"
+
   end
+ end
 
-
-  def piglatinize(word)
-    if word.include?(" ")
-       to_pig_latin(word)
-    else
-      first_split = word.split(/([aeiouAEIOU].*)/)[0]
-      second_split = word.split(/([aeiouAEIOU].*)/)[1]
-      if first_split == ""
-         second_split + "way"
-      else
-         second_split + first_split + "ay"
-      end
-    end
-  end
-
+def to_pig_latin(string)
+  string.split.collect{|word| piglatinize(word)}.join(" ")
+end
 
 end
