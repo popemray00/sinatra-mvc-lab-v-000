@@ -1,8 +1,8 @@
 class PigLatinizer
 
   def to_pig_latin(sentence)
-    @word = sentence.split(" ")
-    @word.map! {|word| piglatinize(@word)}.join(" ")
+    word = sentence.split(" ")
+    word.map! {|word| piglatinize(word)}.join(" ")
   end
 
 
