@@ -1,4 +1,5 @@
 require_relative 'config/environment'
+require_relative 'models/piglatinize'
 
 class App < Sinatra::Base
 
@@ -12,5 +13,5 @@ class App < Sinatra::Base
 
     erb :results
   end
-  
+
 end
